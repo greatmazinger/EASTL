@@ -341,21 +341,21 @@ int TEST_STRING_NAME()
 		{
 			StringViewT str(LITERAL("abcdefghijklmnopqrstuvwxyz"));
 
-			VERIFY(str.find(StringViewT(LITERAL("d")))    != StringViewT::npos);
-			VERIFY(str.find(StringViewT(LITERAL("tuv")))  != StringViewT::npos);
-			VERIFY(str.find(StringViewT(LITERAL("123r"))) == StringViewT::npos);
+			VERIFY(str.rfind(StringViewT(LITERAL("d")))    != StringViewT::npos);
+			VERIFY(str.rfind(StringViewT(LITERAL("tuv")))  != StringViewT::npos);
+			VERIFY(str.rfind(StringViewT(LITERAL("123r"))) == StringViewT::npos);
 
-			VERIFY(str.find(LITERAL("d"))    != StringViewT::npos);
-			VERIFY(str.find(LITERAL("tuv"))  != StringViewT::npos);
-			VERIFY(str.find(LITERAL("123r")) == StringViewT::npos);
+			VERIFY(str.rfind(LITERAL("d"))    != StringViewT::npos);
+			VERIFY(str.rfind(LITERAL("tuv"))  != StringViewT::npos);
+			VERIFY(str.rfind(LITERAL("123r")) == StringViewT::npos);
 
-			VERIFY(str.find(LITERAL("d"), 0)    != StringViewT::npos);
-			VERIFY(str.find(LITERAL("tuv"), 2)  != StringViewT::npos);
-			VERIFY(str.find(LITERAL("123r"), 2) == StringViewT::npos);
+            VERIFY(str.rfind(LITERAL("d"), str.length())        != StringViewT::npos);
+            VERIFY(str.rfind(LITERAL("tuv"), str.length() - 2)  != StringViewT::npos);
+            VERIFY(str.rfind(LITERAL("123r"), str.length() - 2) == StringViewT::npos);
 
-			VERIFY(str.find(LITERAL('d'), 0) != StringViewT::npos);
-			VERIFY(str.find(LITERAL('t'), 2) != StringViewT::npos);
-			VERIFY(str.find(LITERAL('1'), 2) == StringViewT::npos);
+            VERIFY(str.rfind(LITERAL('d'), str.length() - 0) != StringViewT::npos);
+            VERIFY(str.rfind(LITERAL('t'), str.length() - 2) != StringViewT::npos);
+            VERIFY(str.rfind(LITERAL('1'), str.length() - 2) == StringViewT::npos);
 		}
 
 		// EA_CONSTEXPR size_type find_first_of(basic_string_view s, size_type pos = 0) const EA_NOEXCEPT;
