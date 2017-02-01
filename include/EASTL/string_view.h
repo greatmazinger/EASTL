@@ -60,10 +60,10 @@ namespace eastl
 		EA_CONSTEXPR const_iterator cbegin() const EA_NOEXCEPT { return mpBegin; }
 		EA_CONSTEXPR const_iterator end() const EA_NOEXCEPT { return mpBegin + mnCount; }
 		EA_CONSTEXPR const_iterator cend() const EA_NOEXCEPT { return mpBegin + mnCount; }
-		EA_CONSTEXPR const_reverse_iterator rbegin() const EA_NOEXCEPT { return reverse_iterator(mpBegin + mnCount); }
-		EA_CONSTEXPR const_reverse_iterator crbegin() const EA_NOEXCEPT { return reverse_iterator(mpBegin + mnCount); }
-		EA_CONSTEXPR const_reverse_iterator rend() const EA_NOEXCEPT { return reverse_iterator(mpBegin); }
-		EA_CONSTEXPR const_reverse_iterator crend() const EA_NOEXCEPT { return reverse_iterator(mpBegin); }
+		EA_CONSTEXPR const_reverse_iterator rbegin() const EA_NOEXCEPT { return const_reverse_iterator(mpBegin + mnCount); }
+		EA_CONSTEXPR const_reverse_iterator crbegin() const EA_NOEXCEPT { return const_reverse_iterator(mpBegin + mnCount); }
+		EA_CONSTEXPR const_reverse_iterator rend() const EA_NOEXCEPT { return const_reverse_iterator(mpBegin); }
+		EA_CONSTEXPR const_reverse_iterator crend() const EA_NOEXCEPT { return const_reverse_iterator(mpBegin); }
 
 
 		// 21.4.2.4, element access
